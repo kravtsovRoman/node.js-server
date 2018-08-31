@@ -1,10 +1,11 @@
-var fs = require('fs');
+var express = require('express');
 
-var myRedShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
-var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+var app = express();
 
-myRedShort.on('data', (chunk) => {
-    myWriteShort.write(chunk);
+app.get('/', function (req, res) {
+    
 });
+
+app.listen(3000);
 
 
