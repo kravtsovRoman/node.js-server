@@ -2,16 +2,32 @@ var express = require('express');
 
 var app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', function (req, res) {
-    res.send('SEND!!!! This is HOME');
+    res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/news', function (req, res) {
-    res.send(' This is NEWS');
+app.get('/about', function (req, res) {
+    res.sendFile(__dirname + '/about.html');
 });
 
 app.get('/news/:id', function (req, res) {
-    res.send('NEWS ID -' + req.params.id);
+
+    var obj = {
+      pagagrafs: [
+          'Первый',
+          'Второй',
+          'Третий',
+          '4',
+          'пятый 5',
+          6
+      ]
+    };
+    res.render('news', {
+        newsId: req.params.id,
+        obj: obj
+    });
 });
 
 app.listen(3000);

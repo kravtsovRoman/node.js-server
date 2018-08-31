@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>новость</title>
+</head>
+<body>
+<h1>Новостная страница <%= newsId%> </h1>
+
+<ul>
+    <% obj.pagagrafs.forEach(function(item) { %>
+    <li> <%= item %> </li>
+    <% }); %>
+</ul>
+
+</body>
+</html>
